@@ -2,24 +2,18 @@
 
 exports[`Body component (SSR) > passes style and other props correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><body style="background-color:red" class data-testid="body-test" onload="this.__e=event" onerror="this.__e=event"><!--[-->Test<!----><!--]--></body><!--]-->
-</html>"
+<body style="background-color:red" data-testid="body-test">Test</body>"
 `;
 
 exports[`Body component (SSR) > renders children correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><body class onload="this.__e=event" onerror="this.__e=event"><!--[-->Test message<!----><!--]--></body><!--]-->
-</html>"
+<body>Test message</body>"
 `;
 
 exports[`Body component (SSR) > renders correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><body class onload="this.__e=event" onerror="this.__e=event"><!--[-->Lorem ipsum<!----><!--]--></body><!--]-->
-</html>"
+<body>Lorem ipsum</body>"
 `;

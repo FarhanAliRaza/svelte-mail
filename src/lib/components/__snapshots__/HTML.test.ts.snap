@@ -2,24 +2,18 @@
 
 exports[`Html component (SSR) > passes props correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><html lang="fr" dir="rtl" data-testid="html-test"><!----></html><!--]-->
-</html>"
+<html lang="fr" dir="rtl" data-testid="html-test"></html>"
 `;
 
 exports[`Html component (SSR) > renders children correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><html lang="en" dir="ltr"><!----></html><!--]-->
-</html>"
+<html lang="en" dir="ltr"></html>"
 `;
 
 exports[`Html component (SSR) > renders correctly with default props 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><html lang="en" dir="ltr"><!----></html><!--]-->
-</html>"
+<html lang="en" dir="ltr"></html>"
 `;

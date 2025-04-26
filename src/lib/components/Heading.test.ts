@@ -27,7 +27,7 @@ describe('Heading component (SSR)', () => {
     });
     
     const html = typeof result === 'string' ? result : result.html;
-    expect(html).toContain('background-color:red');
+    expect(html).toContain('background-color: red;');
     expect(html).toContain('data-testid="heading-test"');
     // Content verification via snapshot
     expect(html).toMatchSnapshot();

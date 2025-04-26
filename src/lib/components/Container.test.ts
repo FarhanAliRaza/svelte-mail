@@ -26,31 +26,30 @@ describe('Container component (SSR)', () => {
 
   it('passes style and other props correctly', async () => {
     // Pass style as a string
-    const styleString = 'max-width:300px;background-color:red';
     const result = await render(Container, undefined, {
-      style: styleString,
+      style: "max-width: 300px; background-color: red;",
       'data-testid': 'container-test',
       children: createSnippet('Test')
     });
     
     const html = typeof result === 'string' ? result : result.html;
     // Check for the exact style string attribute
-    expect(html).toContain(`style="${styleString}"`);
+    expect(html).toContain(`style="max-width: 300px; background-color: red;"`);
     expect(html).toContain('data-testid="container-test"');
     expect(html).toMatchSnapshot();
   });
 
   it('renders correctly with a button child', async () => {
     // Pass style as a string
-    const styleString = 'max-width:300px';
+    const styleString = '';
     const result = await render(Container, undefined, {
-      style: styleString,
+      style: "max-width: 300px;",
       children: createSnippet('<button type="button">Hi</button>')
     });
     
     const html = typeof result === 'string' ? result : result.html;
     // Check for the exact style string attribute
-    expect(html).toContain(`style="${styleString}"`);
+    expect(html).toContain(`style="max-width: 300px;"`);
     expect(html).toMatchSnapshot();
   });
 

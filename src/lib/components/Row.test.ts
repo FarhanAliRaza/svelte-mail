@@ -28,7 +28,7 @@ describe('Row component (SSR)', () => {
     });
     
     const html = typeof result === 'string' ? result : result.html;
-    expect(html).toContain('background-color:red;');
+    expect(html).toContain('background-color: red;');
     expect(html).toContain('data-testid="row-test"');
     expect(html).toMatchSnapshot();
   });

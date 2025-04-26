@@ -2,24 +2,18 @@
 
 exports[`Heading component (SSR) > passes style and other props correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><!----><h1 style="background-color:red" data-testid="heading-test"><!--[-->Test<!----><!--]--><!----></h1><!----><!--]-->
-</html>"
+<h1 style="background-color: red;" data-testid="heading-test">Test</h1>"
 `;
 
 exports[`Heading component (SSR) > renders with as and margin props 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><!----><h2 style="margin-left:4px;margin-right:4px"><!--[-->Lorem ipsum<!----><!--]--><!----></h2><!----><!--]-->
-</html>"
+<h2 style="margin-left: 4px; margin-right: 4px;">Lorem ipsum</h2>"
 `;
 
 exports[`Heading component (SSR) > renders with default tag h1 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><!----><h1 style><!--[-->Test message<!----><!--]--><!----></h1><!----><!--]-->
-</html>"
+<h1 style>Test message</h1>"
 `;

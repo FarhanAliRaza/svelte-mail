@@ -2,16 +2,12 @@
 
 exports[`Hr component (SSR) > passes styles and other props correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><hr style="width:50%;border:none;border-top:1px solid #eaeaea;border-color:black" data-testid="hr-test"><!--]-->
-</html>"
+<hr style="width: 50%; border: none; border-top: 1px solid #eaeaea; border-color: black;" data-testid="hr-test">"
 `;
 
 exports[`Hr component (SSR) > renders correctly with default styles 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><hr style="width:100%;border:none;border-top:1px solid #eaeaea"><!--]-->
-</html>"
+<hr style="width: 100%; border: none; border-top: 1px solid #eaeaea;">"
 `;

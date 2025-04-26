@@ -1,12 +1,16 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
+	import { styleToString } from '../utils';
+
 	interface Props extends Omit<HTMLAttributes<HTMLTableElement>, 'style' | 'children'> {
 		style?: HTMLAttributes<HTMLTableElement>['style'];
 		children?: Snippet;
 	}
 
 	let { style, children, ...rest }: Props = $props();
+
+	const processedStyle = styleToString(style);
 </script>
 
 <table
@@ -16,7 +20,7 @@
 	cellpadding="0"
 	cellspacing="0"
 	role="presentation"
-	{style}
+	style={processedStyle}
 	{...rest}
 >
 	<tbody>

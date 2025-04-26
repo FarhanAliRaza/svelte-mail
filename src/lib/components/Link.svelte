@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import { styleToString } from '../utils';
 
 	interface Props extends Omit<HTMLAttributes<HTMLAnchorElement>, 'style' | 'target'> {
 		href: string;
@@ -12,32 +13,25 @@
 
 	let { href, target = '_blank', style = {}, children, ...rest }: Props = $props();
 
-	const defaultStyleObj = {
-		color: '#067df7',
-		textDecorationLine: 'none'
-	};
+	const defaultStyle = 'color: #067df7; text-decoration-line: none;';
 
-	function mergeStyle(style: Props['style']): Record<string, string | number> {
-		if (typeof style === 'string') {
-			return style.split(';').reduce(
-				(acc, item) => {
-					const [key, value] = item.split(':').map((s) => s.trim());
-					if (key && value) acc[key] = value;
-					return acc;
-				},
-				{} as Record<string, string | number>
-			);
+	function normalizeStyleProp(styleProp: Props['style']): string | undefined {
+		if (typeof styleProp === 'string') {
+			return styleProp;
+		} else if (typeof styleProp === 'object' && styleProp !== null) {
+			return Object.entries(styleProp)
+				.map(([key, value]) => `${key}:${value};`)
+				.join(' ');
 		}
-		return { ...style };
+		return undefined;
 	}
 
-	const mergedStyleObj = { ...defaultStyleObj, ...mergeStyle(style) };
-	const mergedStyle = Object.entries(mergedStyleObj)
-		.map(([k, v]) => `${k.replace(/([A-Z])/g, '-$1').toLowerCase()}:${v}`)
-		.join(';');
+	const normalizedPassedStyle = normalizeStyleProp(style);
+
+	const combinedStyle = styleToString(defaultStyle, normalizedPassedStyle);
 </script>
 
-<a {href} {target} style={mergedStyle} {...rest}>
+<a {href} {target} style={combinedStyle} {...rest}>
 	{#if children}
 		{@render children()}
 	{/if}

@@ -2,56 +2,42 @@
 
 exports[`Button component (SSR) > allows overriding default style properties 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 150%; display: block; text-decoration: underline; max-width: 50%; lineHeight: 100%; textDecoration: none; maxWidth: 100%; padding: 0px 0px 0px 0px; msoPaddingAlt: 0px;" class><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"><!----></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 150%; text-decoration: underline; display: block; max-width: 50%; mso-padding-alt: 0px; padding: 0px 0px 0px 0px;"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span></a>"
 `;
 
 exports[`Button component (SSR) > applies custom styles and props 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="background-color: #ff0000; color: #ffffff; lineHeight: 100%; textDecoration: none; display: inline-block; maxWidth: 100%; padding: 0px 0px 0px 0px; msoPaddingAlt: 0px;" class backgroundcolor="#ff0000" color="#ffffff" borderradius="8px" width="200px"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"><!----></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px; padding: 0px 0px 0px 0px; background-color: #ff0000; color: #ffffff;" backgroundcolor="#ff0000" color="#ffffff" borderradius="8px" width="200px"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span></a>"
 `;
 
 exports[`Button component (SSR) > forwards additional HTML attributes 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="lineHeight: 100%; textDecoration: none; display: inline-block; maxWidth: 100%; padding: 0px 0px 0px 0px; msoPaddingAlt: 0px;" class aria-label="Click this button" data-testid="test-button" title="Button Title"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"><!----></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px; padding: 0px 0px 0px 0px;" aria-label="Click this button" data-testid="test-button" title="Button Title"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span></a>"
 `;
 
 exports[`Button component (SSR) > renders correctly with explicit padding values 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="lineHeight: 100%; textDecoration: none; display: inline-block; maxWidth: 100%; padding: 10px 15px 10px 15px; msoPaddingAlt: 0px;" class><span><!--xyluz5--><!--[if mso]><i style="mso-font-width:375%;mso-text-raise:15" hidden>&#8202;&#8202;</i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 15px;"><!----></span> <span><!--1qo1ivl--><!--[if mso]><i style="mso-font-width:375%" hidden>&#8202;&#8202;&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px; padding: 10px 15px 10px 15px;"><span><!--xyluz5--><!--[if mso]><i style="mso-font-width:375%;mso-text-raise:15" hidden>&#8202;&#8202;</i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 15px;"></span> <span><!--1qo1ivl--><!--[if mso]><i style="mso-font-width:375%" hidden>&#8202;&#8202;&#8203;</i><![endif]--></span></a>"
 `;
 
 exports[`Button component (SSR) > renders correctly with padding values from padding prop 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="lineHeight: 100%; textDecoration: none; display: inline-block; maxWidth: 100%; padding: 12px 20px 12px 20px; msoPaddingAlt: 0px;" class><span><!--1x4s7i4--><!--[if mso]><i style="mso-font-width:500%;mso-text-raise:18" hidden>&#8202;&#8202;</i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 18px;"><!----></span> <span><!--11jg0db--><!--[if mso]><i style="mso-font-width:500%" hidden>&#8202;&#8202;&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px; padding: 12px 20px 12px 20px;"><span><!--1x4s7i4--><!--[if mso]><i style="mso-font-width:500%;mso-text-raise:18" hidden>&#8202;&#8202;</i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 18px;"></span> <span><!--11jg0db--><!--[if mso]><i style="mso-font-width:500%" hidden>&#8202;&#8202;&#8203;</i><![endif]--></span></a>"
 `;
 
 exports[`Button component (SSR) > renders with default props 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="lineHeight: 100%; textDecoration: none; display: inline-block; maxWidth: 100%; padding: 0px 0px 0px 0px; msoPaddingAlt: 0px;" class><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"><!----></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px; padding: 0px 0px 0px 0px;"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span></a>"
 `;
 
 exports[`Button component (SSR) > renders with no padding when not specified 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><a href="https://example.com" target="_blank" rel="noopener noreferrer" style="lineHeight: 100%; textDecoration: none; display: inline-block; maxWidth: 100%; padding: 0px 0px 0px 0px; msoPaddingAlt: 0px;" class><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--><!----></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"><!----></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--><!----></span></a><!--]-->
-</html>"
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" style="line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px; padding: 0px 0px 0px 0px;"><span><!--10kjb78--><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--></span> <span style="max-width: 100%; display: inline-block; line-height: 120%; mso-padding-alt: 0px; mso-text-raise: 0px;"></span> <span><!--56ydbm--><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span></a>"
 `;

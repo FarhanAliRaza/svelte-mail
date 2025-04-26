@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import { styleToString } from '../utils';
 
 	interface Props extends Omit<HTMLAttributes<HTMLHeadingElement>, 'style'> {
 		as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -18,54 +19,46 @@
 
 	let { as = 'h1', style = {}, m, mx, my, mt, mr, mb, ml, children, ...rest }: Props = $props();
 
-	function marginToStyle({
-		m,
-		mx,
-		my,
-		mt,
-		mr,
-		mb,
-		ml
-	}: Partial<Props>): Record<string, string | number> {
-		const s: Record<string, string | number> = {};
-		if (m !== undefined) s['margin'] = addPx(m);
-		if (mx !== undefined) {
-			s['margin-left'] = addPx(mx);
-			s['margin-right'] = addPx(mx);
-		}
-		if (my !== undefined) {
-			s['margin-top'] = addPx(my);
-			s['margin-bottom'] = addPx(my);
-		}
-		if (mt !== undefined) s['margin-top'] = addPx(mt);
-		if (mr !== undefined) s['margin-right'] = addPx(mr);
-		if (mb !== undefined) s['margin-bottom'] = addPx(mb);
-		if (ml !== undefined) s['margin-left'] = addPx(ml);
-		return s;
-	}
-	function addPx(val: string | number) {
+	function addPx(val: string | number): string {
 		return typeof val === 'number' ? `${val}px` : val;
 	}
-	function mergeStyle(style: Props['style']): Record<string, string | number> {
-		if (typeof style === 'string') {
-			return style.split(';').reduce(
-				(acc, item) => {
-					const [key, value] = item.split(':').map((s) => s.trim());
-					if (key && value) acc[key] = value;
-					return acc;
-				},
-				{} as Record<string, string | number>
-			);
+
+	function getMarginStyles({ m, mx, my, mt, mr, mb, ml }: Partial<Props>): string {
+		const styles: string[] = [];
+		if (m !== undefined) styles.push(`margin: ${addPx(m)};`);
+		if (mx !== undefined) {
+			styles.push(`margin-left: ${addPx(mx)};`);
+			styles.push(`margin-right: ${addPx(mx)};`);
 		}
-		return { ...style };
+		if (my !== undefined) {
+			styles.push(`margin-top: ${addPx(my)};`);
+			styles.push(`margin-bottom: ${addPx(my)};`);
+		}
+		if (mt !== undefined) styles.push(`margin-top: ${addPx(mt)};`);
+		if (mr !== undefined) styles.push(`margin-right: ${addPx(mr)};`);
+		if (mb !== undefined) styles.push(`margin-bottom: ${addPx(mb)};`);
+		if (ml !== undefined) styles.push(`margin-left: ${addPx(ml)};`);
+		return styleToString(...styles);
 	}
-	const mergedStyleObj = { ...marginToStyle({ m, mx, my, mt, mr, mb, ml }), ...mergeStyle(style) };
-	const mergedStyle = Object.entries(mergedStyleObj)
-		.map(([k, v]) => `${k.replace(/([A-Z])/g, '-$1').toLowerCase()}:${v}`)
-		.join(';');
+
+	function normalizeStyleProp(styleProp: Props['style']): string | undefined {
+		if (typeof styleProp === 'string') {
+			return styleProp;
+		} else if (typeof styleProp === 'object' && styleProp !== null) {
+			return Object.entries(styleProp)
+				.map(([key, value]) => `${key}:${value};`)
+				.join(' ');
+		}
+		return undefined;
+	}
+
+	const marginStyles = getMarginStyles({ m, mx, my, mt, mr, mb, ml });
+	const normalizedPassedStyle = normalizeStyleProp(style);
+
+	const combinedStyle = styleToString(marginStyles, normalizedPassedStyle);
 </script>
 
-<svelte:element this={as} style={mergedStyle} {...rest}>
+<svelte:element this={as} style={combinedStyle} {...rest}>
 	{#if children}
 		{@render children()}
 	{/if}

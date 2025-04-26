@@ -15,8 +15,8 @@ describe('Hr component (SSR)', () => {
     });
     
     const html = typeof result === 'string' ? result : result.html;
-    expect(html).toContain('width:50%');
-    expect(html).toContain('border-color:black');
+    expect(html).toContain('width: 50%;');
+    expect(html).toContain('border-color: black;');
     expect(html).toContain('data-testid="hr-test"');
     expect(html).toMatchSnapshot();
   });
@@ -25,9 +25,9 @@ describe('Hr component (SSR)', () => {
     const result = await render(Hr, undefined, {});
     
     const html = typeof result === 'string' ? result : result.html;
-    expect(html).toContain('width:100%');
-    expect(html).toContain('border:none');
-    expect(html).toContain('border-top:1px solid #eaeaea');
+    expect(html).toContain('width: 100%;');
+    expect(html).toContain('border: none;');
+    expect(html).toContain('border-top: 1px solid #eaeaea;');
     expect(html).toMatchSnapshot();
   });
 }); 

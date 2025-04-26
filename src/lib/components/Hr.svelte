@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
+	import { styleToString } from '../utils';
 
 	interface Props extends Omit<HTMLAttributes<HTMLHRElement>, 'style'> {
 		style?: string | Record<string, string | number>;
@@ -8,30 +9,22 @@
 
 	let { style = {}, ...rest }: Props = $props();
 
-	const defaultStyleObj = {
-		width: '100%',
-		border: 'none',
-		borderTop: '1px solid #eaeaea'
-	};
+	const defaultStyle = 'width: 100%; border: none; border-top: 1px solid #eaeaea;';
 
-	function mergeStyle(style: Props['style']): Record<string, string | number> {
-		if (typeof style === 'string') {
-			return style.split(';').reduce(
-				(acc, item) => {
-					const [key, value] = item.split(':').map((s) => s.trim());
-					if (key && value) acc[key] = value;
-					return acc;
-				},
-				{} as Record<string, string | number>
-			);
+	function normalizeStyleProp(styleProp: Props['style']): string | undefined {
+		if (typeof styleProp === 'string') {
+			return styleProp;
+		} else if (typeof styleProp === 'object' && styleProp !== null) {
+			return Object.entries(styleProp)
+				.map(([key, value]) => `${key}:${value};`)
+				.join(' ');
 		}
-		return { ...style };
+		return undefined;
 	}
 
-	const mergedStyleObj = { ...defaultStyleObj, ...mergeStyle(style) };
-	const mergedStyle = Object.entries(mergedStyleObj)
-		.map(([k, v]) => `${k.replace(/([A-Z])/g, '-$1').toLowerCase()}:${v}`)
-		.join(';');
+	const normalizedPassedStyle = normalizeStyleProp(style);
+
+	const combinedStyle = styleToString(defaultStyle, normalizedPassedStyle);
 </script>
 
-<hr style={mergedStyle} {...rest} />
+<hr style={combinedStyle} {...rest} />

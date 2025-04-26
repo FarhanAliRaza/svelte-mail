@@ -2,24 +2,18 @@
 
 exports[`Head component (SSR) > renders default meta tags 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"> <meta name="x-apple-disable-message-reformatting"> <!--[!--><!--]--></head><!--]-->
-</html>"
+<head><meta content="text/html; charset=UTF-8" http-equiv="content-type"> <meta name="x-apple-disable-message-reformatting"> </head>"
 `;
 
 exports[`Head component (SSR) > renders with children 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"> <meta name="x-apple-disable-message-reformatting"> <!--[--><!----><!--]--></head><!--]-->
-</html>"
+<head><meta content="text/html; charset=UTF-8" http-equiv="content-type"> <meta name="x-apple-disable-message-reformatting"> </head>"
 `;
 
 exports[`Head component (SSR) > renders with style tag content 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"> <meta name="x-apple-disable-message-reformatting"> <!--[--><!----><!--]--></head><!--]-->
-</html>"
+<head><meta content="text/html; charset=UTF-8" http-equiv="content-type"> <meta name="x-apple-disable-message-reformatting"> </head>"
 `;

@@ -24,6 +24,7 @@ export interface RenderOptions {
   pretty?: boolean; // Format output HTML
   plainText?: boolean; // Generate plain text version
   tailwindConfig?: string | TailwindConfig; // Path or object for Tailwind configuration
+  globalStyles?: string; // Add option for global styles (e.g., fonts)
   htmlToTextOptions?: HtmlToTextOptions; // Options for html-to-text
   juiceOptions?: juice.Options; // Options for juice
 }
@@ -177,10 +178,13 @@ export async function render<Props extends Record<string, any>>(
     }
   }
 
+  // Combine Tailwind CSS with other global styles (like fonts)
+  const allExtraCss = [options?.globalStyles, tailwindGeneratedCss].filter(Boolean).join('\n');
+
   // 4. Inline CSS using juice
-  const juiceOptions = {
-    extraCss: tailwindGeneratedCss, // Only use Tailwind CSS here
-    removeStyleTags: true,
+  const juiceOptions: juice.Options = {
+    extraCss: allExtraCss, // Use combined global and Tailwind CSS
+    removeStyleTags: true, // Remove other style tags potentially added by Svelte
     ...options?.juiceOptions
   };
   

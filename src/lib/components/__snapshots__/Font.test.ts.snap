@@ -1,41 +1,63 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Font component (SSR) > renders correctly snapshot 1`] = `
+exports[`Font component (SSR) > does not render font CSS when webFont prop is omitted 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><span style="font-family: Roboto, Verdana"></span><!--]-->
-</html>"
+"
 `;
 
-exports[`Font component (SSR) > renders with array fallbackFontFamily (current behavior) 1`] = `
+exports[`Font component (SSR) > renders font CSS correctly when fontFamily contains spaces 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><span style="font-family: Arial, Helvetica,Verdana"></span><!--]-->
-</html>"
+<div hidden data-testid="font-face-css">
+			@font-face {
+				font-family: 'Times New Roman';
+				font-style: normal;
+				font-weight: 400;
+				mso-font-alt: 'serif';
+				src: url(https://example.com/times.woff2) format('woff2');
+			}
+		</div>"
 `;
 
-exports[`Font component (SSR) > renders with fontFamily and single fallbackFontFamily 1`] = `
+exports[`Font component (SSR) > renders font CSS when webFont prop is provided 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><span style="font-family: Arial, Helvetica"></span><!--]-->
-</html>"
+<div hidden data-testid="font-face-css">
+			@font-face {
+				font-family: 'Roboto';
+				font-style: italic;
+				font-weight: 700;
+				mso-font-alt: 'Helvetica';
+				src: url(https://fonts.googleapis.com/css2?family=Roboto) format('woff2');
+			}
+		</div>"
 `;
 
-exports[`Font component (SSR) > renders with only fontFamily 1`] = `
+exports[`Font component (SSR) > renders font CSS with defaults and single string fallback 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><span style="font-family: Arial"></span><!--]-->
-</html>"
+<div hidden data-testid="font-face-css">
+			@font-face {
+				font-family: 'Lato';
+				font-style: normal;
+				font-weight: 400;
+				mso-font-alt: 'Verdana';
+				src: url(https://example.com/lato.woff2) format('woff2');
+			}
+		</div>"
 `;
 
-exports[`Font component (SSR) > renders with webFont prop (checks font-family span) 1`] = `
+exports[`Font component (SSR) > renders font CSS with minimal props (uses defaults) 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><span style="font-family: Example, Helvetica"></span><!--]-->
-</html>"
+<div hidden data-testid="font-face-css">
+			@font-face {
+				font-family: 'Open Sans';
+				font-style: normal;
+				font-weight: 400;
+				mso-font-alt: 'sans-serif';
+				src: url(https://example.com/opensans.woff2) format('woff2');
+			}
+		</div>"
 `;

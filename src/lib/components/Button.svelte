@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { ClassValue, HTMLAnchorAttributes } from 'svelte/elements';
+	import { styleToString } from '../utils';
 
 	/**
 	 * Computes optimal font width and space count for MSO padding simulation
@@ -108,6 +109,7 @@
 		paddingRight?: string | number;
 		paddingTop?: string | number;
 		paddingBottom?: string | number;
+		style?: string;
 		[key: string]: any;
 	}
 
@@ -127,8 +129,6 @@
 
 	// Parse padding from style string if present
 	const stylePadding = parsePaddingFromStyle(style as string | undefined);
-
-	// Use explicit props if provided, otherwise fallback to style-derived values
 	const paddingObj = parsePadding({
 		padding: padding ?? stylePadding.padding,
 		paddingLeft: paddingLeft ?? stylePadding.paddingLeft,
@@ -136,26 +136,25 @@
 		paddingTop: paddingTop ?? stylePadding.paddingTop,
 		paddingBottom: paddingBottom ?? stylePadding.paddingBottom
 	});
-
-	// Individual padding values override the shorthand if provided
 	const pt = paddingObj.pt;
 	const pr = paddingObj.pr;
 	const pb = paddingObj.pb;
 	const pl = paddingObj.pl;
-
-	// Calculate vertical spacing for MSO text raise
 	const y = pt + pb;
 	const pxToPt = (px: number) => Math.floor(px * 0.75);
-
 	const textRaise = pxToPt(y);
-	// Calculate font width and space count for MSO padding simulation
 	const [plFontWidth, plSpaceCount] = computeFontWidthAndSpaceCount(pl);
 	const [prFontWidth, prSpaceCount] = computeFontWidthAndSpaceCount(pr);
 
-	// Build the final style object
+	// Construct padding style from calculated values
+	const paddingStyle = `padding: ${pt}px ${pr}px ${pb}px ${pl}px;`;
 
-	const buttonStyle =
-		'line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; padding: 0px 0px 0px 0px; mso-padding-alt: 0px;';
+	// Base style *without* hardcoded padding
+	const baseButtonStyle =
+		'line-height: 100%; text-decoration: none; display: inline-block; max-width: 100%; mso-padding-alt: 0px;';
+
+	// Combine base, calculated padding, and passed style prop using the utility
+	const combinedStyle = styleToString(baseButtonStyle, paddingStyle, style);
 
 	// Ensure target="_blank" links are secure
 	const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
@@ -164,7 +163,7 @@
 	const zeroWidthSpace = '&#8202;';
 </script>
 
-<a {href} {target} {rel} style="{buttonStyle} {style}" class={className} {...restProps}>
+<a {href} {target} {rel} style={combinedStyle} class={className} {...restProps}>
 	<span>
 		{@html `<!--[if mso]><i style="mso-font-width:${plFontWidth * 100}%;mso-text-raise:${textRaise}" hidden>${zeroWidthSpace.repeat(plSpaceCount)}</i><![endif]-->`}
 	</span>

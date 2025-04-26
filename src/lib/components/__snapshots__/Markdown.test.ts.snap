@@ -2,38 +2,30 @@
 
 exports[`Markdown component > applies style and class props 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><div style="color:blue;font-weight:bold;" class="markdown-class"><!--ombzod--><p>Text</p>
-<!----></div><!--]-->
-</html>"
+<div style="color:blue;font-weight:bold;" class="markdown-class"><!--ombzod--><p>Text</p>
+</div>"
 `;
 
 exports[`Markdown component > forwards additional props 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><div class data-testid="markdown-test" id="markdown-id"><!--ombzod--><p>Text</p>
-<!----></div><!--]-->
-</html>"
+<div data-testid="markdown-test" id="markdown-id"><!--ombzod--><p>Text</p>
+</div>"
 `;
 
 exports[`Markdown component > renders markdown from children snippet if no content prop 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><div class><!--z38uof--><h2>Subheading</h2>
+<div><!--z38uof--><h2>Subheading</h2>
 <p>A <a href="https://example.com">link</a>.</p>
-<!----></div><!--]-->
-</html>"
+</div>"
 `;
 
 exports[`Markdown component > renders markdown from content prop 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><div class><!--1f3znm--><h1>Heading</h1>
+<div><!--1f3znm--><h1>Heading</h1>
 <p>Some <strong>bold</strong> and <em>italic</em> text.</p>
-<!----></div><!--]-->
-</html>"
+</div>"
 `;

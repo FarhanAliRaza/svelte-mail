@@ -28,7 +28,7 @@ describe('Link component (SSR)', () => {
     });
     
     const html = typeof result === 'string' ? result : result.html;
-    expect(html).toContain('color:red');
+    expect(html).toContain('color: red;');
     expect(html).toContain('data-testid="link-test"');
     expect(html).toMatchSnapshot();
   });
@@ -54,7 +54,7 @@ describe('Link component (SSR)', () => {
     
     const html = typeof result === 'string' ? result : result.html;
     expect(html).toContain('href="https://example.com"');
-    expect(html).toContain('color:green');
+    expect(html).toContain('color: green;');
     expect(html).toContain('target="_self"');
     expect(html).toMatchSnapshot();
   });

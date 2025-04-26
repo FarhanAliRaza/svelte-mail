@@ -2,24 +2,18 @@
 
 exports[`Text component (SSR) > passes style and other props correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><!----><p style="font-size: 14px; line-height: 24px; margin: 16px 0; [object Object]" data-testid="text-test"><!--[-->Test<!----><!--]--><!----></p><!----><!--]-->
-</html>"
+<p style="font-size: 14px; line-height: 24px; margin: 16px 0;" data-testid="text-test">Test</p>"
 `;
 
 exports[`Text component (SSR) > renders as span when as="span" is set 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><!----><span style="font-size: 14px; line-height: 24px; margin: 16px 0; undefined"><!--[-->Span text<!----><!--]--><!----></span><!----><!--]-->
-</html>"
+<span style="font-size: 14px; line-height: 24px; margin: 16px 0;">Span text</span>"
 `;
 
 exports[`Text component (SSR) > renders children correctly 1`] = `
 "<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
 
-<!--[--><!----><p style="font-size: 14px; line-height: 24px; margin: 16px 0; undefined"><!--[-->Test message<!----><!--]--><!----></p><!----><!--]-->
-</html>"
+<p style="font-size: 14px; line-height: 24px; margin: 16px 0;">Test message</p>"
 `;
