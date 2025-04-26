@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Img component (SSR) > passes style and other props correctly 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><img src="cat.jpg" alt="Cat" width="300" height="300" style="display:block;outline:none;border:solid 1px black;text-decoration:none;background-color:red" data-testid="img-test" onload="this.__e=event" onerror="this.__e=event"><!--]-->
+</html>"
+`;
+
+exports[`Img component (SSR) > renders correctly with default styles and props 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><img src="cat.jpg" alt="Cat" width="300" height="300" style="display:block;outline:none;border:none;text-decoration:none" onload="this.__e=event" onerror="this.__e=event"><!--]-->
+</html>"
+`;

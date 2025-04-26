@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container component (SSR) > passes style and other props correctly 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:300px;background-color:red" class data-testid="container-test"><tbody><tr style="width: 100%"><td>Test<!----></td></tr></tbody></table><!--]-->
+</html>"
+`;
+
+exports[`Container component (SSR) > renders children correctly 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" class><tbody><tr style="width: 100%"><td>Test message<!----></td></tr></tbody></table><!--]-->
+</html>"
+`;
+
+exports[`Container component (SSR) > renders correctly with a button child 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="max-width:300px" class><tbody><tr style="width: 100%"><td><button type="button">Hi</button><!----></td></tr></tbody></table><!--]-->
+</html>"
+`;

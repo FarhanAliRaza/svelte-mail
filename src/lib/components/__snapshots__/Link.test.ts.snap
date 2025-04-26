@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Link component (SSR) > opens in a new tab by default 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><a href="https://example.com" target="_blank" style="color:#067df7;text-decoration-line:none"><!--[-->Test<!----><!--]--></a><!--]-->
+</html>"
+`;
+
+exports[`Link component (SSR) > passes style and other props correctly 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><a href="https://example.com" target="_blank" style="color:red;text-decoration-line:none" data-testid="link-test"><!--[-->Test<!----><!--]--></a><!--]-->
+</html>"
+`;
+
+exports[`Link component (SSR) > renders children correctly 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><a href="https://example.com" target="_blank" style="color:#067df7;text-decoration-line:none"><!--[-->Test message<!----><!--]--></a><!--]-->
+</html>"
+`;
+
+exports[`Link component (SSR) > renders correctly with all props 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><a href="https://example.com" target="_self" style="color:green;text-decoration-line:none"><!--[-->Example<!----><!--]--></a><!--]-->
+</html>"
+`;

@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Font component (SSR) > renders correctly snapshot 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><span style="font-family: Roboto, Verdana"></span><!--]-->
+</html>"
+`;
+
+exports[`Font component (SSR) > renders with array fallbackFontFamily (current behavior) 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><span style="font-family: Arial, Helvetica,Verdana"></span><!--]-->
+</html>"
+`;
+
+exports[`Font component (SSR) > renders with fontFamily and single fallbackFontFamily 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><span style="font-family: Arial, Helvetica"></span><!--]-->
+</html>"
+`;
+
+exports[`Font component (SSR) > renders with only fontFamily 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><span style="font-family: Arial"></span><!--]-->
+</html>"
+`;
+
+exports[`Font component (SSR) > renders with webFont prop (checks font-family span) 1`] = `
+"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--[--><span style="font-family: Example, Helvetica"></span><!--]-->
+</html>"
+`;
