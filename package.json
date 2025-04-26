@@ -84,5 +84,12 @@
 		"html-to-text": "^9.0.5",
 		"juice": "^11.0.1",
 		"marked": "^15.0.8"
+	},
+
+
+	"author": {
+		"name": "Farhan Ali Raza",
+		"email": "farhanalirazaazeez@gmail.com",
+		"url": "https://farhana.li"
 	}
 }
