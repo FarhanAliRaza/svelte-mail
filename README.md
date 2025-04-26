@@ -5,11 +5,11 @@ A powerful email template builder for Svelte applications, inspired by React Ema
 ## Installation
 
 ```bash
-pnpm add svelte-mail
+pnpm add mail-svelte
 # or
-npm install svelte-mail
+npm install mail-svelte
 # or
-yarn add svelte-mail
+yarn add mail-svelte
 ```
 
 ## Basic Usage
@@ -18,7 +18,7 @@ Here's a basic example of how to create an email template:
 
 ```svelte
 <script lang="ts">
-	import { Html, Head, Body, Container, Section, Text } from 'svelte-mail';
+	import { Html, Head, Body, Container, Section, Text } from 'mail-svelte';
 </script>
 
 <Html>
@@ -58,7 +58,7 @@ Contains metadata and styles for your email.
 
 ```svelte
 <script lang="ts">
-    import { Head, Font } from 'svelte-mail';
+    import { Head, Font } from 'mail-svelte';
 </script>
 
 <Head>
@@ -80,7 +80,7 @@ Add custom fonts to your email. Can be used in two ways:
 
     ```svelte
     <script lang="ts">
-        import { Font } from 'svelte-mail';
+        import { Font } from 'mail-svelte';
     </script>
 
     <Font
@@ -97,7 +97,7 @@ Add custom fonts to your email. Can be used in two ways:
 
     ```svelte
     <script lang="ts">
-        import { Font } from 'svelte-mail';
+        import { Font } from 'mail-svelte';
     </script>
 
     <Font fontFamily="Arial" fallbackFontFamily="sans-serif" />
@@ -117,7 +117,7 @@ Container for your email content.
 
 ```svelte
 <script lang="ts">
-    import { Body } from 'svelte-mail';
+    import { Body } from 'mail-svelte';
 </script>
 
 <Body style="background-color: #f6f9fc;">
@@ -131,7 +131,7 @@ A centered wrapper with a maximum width.
 
 ```svelte
 <script lang="ts">
-    import { Container } from 'svelte-mail';
+    import { Container } from 'mail-svelte';
 </script>
 
 <Container style="max-width: 600px;">
@@ -145,7 +145,7 @@ A structural component for grouping content.
 
 ```svelte
 <script lang="ts">
-    import { Section } from 'svelte-mail';
+    import { Section } from 'mail-svelte';
 </script>
 
 <Section style="padding: 20px 0;">
@@ -159,7 +159,7 @@ Create responsive layouts.
 
 ```svelte
 <script lang="ts">
-    import { Row, Column, Text } from 'svelte-mail';
+    import { Row, Column, Text } from 'mail-svelte';
 </script>
 
 <Row>
@@ -178,7 +178,7 @@ Create email-client compatible buttons.
 
 ```svelte
 <script lang="ts">
-    import { Button } from 'svelte-mail';
+    import { Button } from 'mail-svelte';
 </script>
 
 <Button href="https://example.com" style="background-color: #000; color: #fff;" padding="12px 20px">
@@ -253,7 +253,7 @@ Renders text content with sensible defaults.
 
 ```svelte
 <script lang="ts">
-    import { Text } from 'svelte-mail';
+    import { Text } from 'mail-svelte';
 </script>
 
 <Text style="color: #333; font-size: 16px;" as="span">Your text content</Text>
@@ -277,7 +277,7 @@ Create styled links.
 
 ```svelte
 <script lang="ts">
-    import { Link } from 'svelte-mail';
+    import { Link } from 'mail-svelte';
 </script>
 
 <Link href="https://example.com" style="color: #067df7;">Click here</Link>
@@ -297,7 +297,7 @@ Add images with proper email client support.
 
 ```svelte
 <script lang="ts">
-    import { Img } from 'svelte-mail';
+    import { Img } from 'mail-svelte';
 </script>
 
 <Img
@@ -331,7 +331,7 @@ Props:
 
 ```svelte
 <script lang="ts">
-    import { Link } from 'svelte-mail';
+    import { Link } from 'mail-svelte';
 </script>
 
 <Link href="#" style="display: block; width: 220px; margin-left: auto; margin-right: 0;">
@@ -345,7 +345,7 @@ Add horizontal rules.
 
 ```svelte
 <script lang="ts">
-    import { Hr } from 'svelte-mail';
+    import { Hr } from 'mail-svelte';
 </script>
 
 <Hr style="border-color: #e6e6e6;" />
@@ -363,7 +363,7 @@ Create headings with proper styling.
 
 ```svelte
 <script lang="ts">
-    import { Heading } from 'svelte-mail';
+    import { Heading } from 'mail-svelte';
 </script>
 
 <Heading as="h1" style="font-size: 24px;" m="0" mb="20px">Your Heading</Heading>
@@ -380,7 +380,7 @@ Adds preview text (preheader) to your email, which appears in the inbox list vie
 
 ```svelte
 <script lang="ts">
-	import { Preview } from 'svelte-mail';
+	import { Preview } from 'mail-svelte';
 </script>
 
 <Preview text="This text appears in the inbox preview, but not the email body." />
@@ -419,7 +419,7 @@ Here's a complete example of a welcome email:
 		Img,
 		Hr,
 		Link
-	} from 'svelte-mail';
+	} from 'mail-svelte';
 </script>
 
 <Html>

@@ -5,7 +5,7 @@ A powerful email template builder for Svelte applications, inspired by React Ema
 ## Installation
 
 ```bash
-pnpm add svelte-mail
+pnpm add mail-svelte
 ```
 
 ## Basic Usage
@@ -14,7 +14,7 @@ Here's a basic example of how to create an email template:
 
 ```svelte
 <script>
-	import { Html, Head, Body, Container, Section, Text } from 'svelte-mail';
+	import { Html, Head, Body, Container, Section, Text } from 'mail-svelte';
 </script>
 
 <Html>
@@ -320,7 +320,7 @@ Adds preview text (preheader) to your email, which appears in the inbox list vie
 
 ```svelte
 <script>
-	import { Preview } from 'svelte-mail';
+	import { Preview } from 'mail-svelte';
 </script>
 
 <Preview text="This text appears in the inbox preview, but not the email body." />
@@ -359,7 +359,7 @@ Here's a complete example of a welcome email:
 		Img,
 		Hr,
 		Link
-	} from 'svelte-mail';
+	} from 'mail-svelte';
 </script>
 
 <Html>
