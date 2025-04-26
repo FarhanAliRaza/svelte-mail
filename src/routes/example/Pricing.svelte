@@ -67,12 +67,12 @@
 	<Head />
 	<Preview>Choose the right plan for you</Preview>
 	<Body>
-		<Container class="bg-white rounded-[8px] mx-auto max-w-[600px] p-[24px]">
+		<Container class="mx-auto max-w-[600px] rounded-[8px] bg-white p-[24px]">
 			<Section class="mb-[42px]">
-				<Heading class="text-[24px] leading-[32px] mb-[12px] text-center">
+				<Heading class="mb-[12px] text-center text-[24px] leading-[32px]">
 					Choose the right plan for you
 				</Heading>
-				<Text class="text-gray-500 text-[14px] leading-[20px] mx-auto max-w-[500px] text-center">
+				<Text class="mx-auto max-w-[500px] text-center text-[14px] leading-[20px] text-gray-500">
 					Choose an affordable plan with top features to engage audiences, build loyalty, and boost
 					sales.
 				</Text>
@@ -85,21 +85,21 @@
 							<Text class={getPlanTitleClass(plan.highlighted)}>
 								{plan.title}
 							</Text>
-							<Text class="text-[28px] font-bold mb-[8px] mt-0">
+							<Text class="mb-[8px] mt-0 text-[28px] font-bold">
 								<span class={getPriceSpanClass(plan.highlighted)}>
 									${plan.price}
 								</span>{' '}
 								<span class="text-[14px] leading-[20px]">/ month</span>
 							</Text>
-							<Text class="mt-[12px] mb-[24px]">{plan.description}</Text>
-							<ul class="text-[12px] leading-[20px] mb-[30px] pl-[14px]">
+							<Text class="mb-[24px] mt-[12px]">{plan.description}</Text>
+							<ul class="mb-[30px] pl-[14px] text-[12px] leading-[20px]">
 								{#each plan.features as feature (feature)}
 									<li class="mb-[8px]">{feature}</li>
 								{/each}
 							</ul>
 							<Button
 								href={plan.buttonUrl}
-								class="bg-indigo-600 rounded-[8px] box-border text-white inline-block font-semibold m-0 max-w-full p-[12px] text-center w-full"
+								class="m-0 box-border inline-block w-full max-w-full rounded-[8px] bg-indigo-600 p-[12px] text-center font-semibold text-white"
 							>
 								{plan.buttonText}
 							</Button>
@@ -109,7 +109,7 @@
 			</Row>
 
 			<Hr class="mt-0" />
-			<Text class="text-gray-500 text-[12px] leading-[16px] font-medium mt-[30px] text-center">
+			<Text class="mt-[30px] text-center text-[12px] font-medium leading-[16px] text-gray-500">
 				Customer Experience Research Team
 			</Text>
 		</Container>

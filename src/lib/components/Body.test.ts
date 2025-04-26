@@ -4,8 +4,6 @@ import Body from './Body.svelte';
 import { render } from '../render';
 import { createSnippet } from '../utils/snippet';
 
-
-
 describe('Body component (SSR)', () => {
 	it('renders children correctly', async () => {
 		const testMessage = 'Test message';

@@ -32,20 +32,26 @@ vi.mock('postcss', () => {
 });
 
 // Define the expected function signature for the mocked Svelte 5 render
-type MockedSvelteRender = (_component: SvelteComponent<any>, _options?: { props?: any }) => { head: string; body: string };
+type MockedSvelteRender = (
+	_component: SvelteComponent<any>,
+	_options?: { props?: any }
+) => { head: string; body: string };
 
 // Mock svelte/server render
 vi.mock('svelte/server', () => {
 	return {
-		render: vi.fn().mockImplementation(
-			(_component: any, _options?: { props?: any }): { head: string; body: string } => { // Use the return type directly here
-				// Default mock implementation, returns head and body
-				return {
-					body: '<body>Test content</body>',
-					head: '<head></head>',
-				};
-			}
-		)
+		render: vi
+			.fn()
+			.mockImplementation(
+				(_component: any, _options?: { props?: any }): { head: string; body: string } => {
+					// Use the return type directly here
+					// Default mock implementation, returns head and body
+					return {
+						body: '<body>Test content</body>',
+						head: '<head></head>'
+					};
+				}
+			)
 	};
 });
 
@@ -82,10 +88,9 @@ describe('render function', () => {
 
 	it('applies the pretty option', async () => {
 		// Override the svelteRender mock for this test only
-		vi.mocked(svelteRender).mockImplementationOnce((): any => ({ 
-			body:
-				'<body><div><p>Test content</p></div></body>',
-			head: '<head><title>Test</title><meta charset="utf-8"></head>',
+		vi.mocked(svelteRender).mockImplementationOnce((): any => ({
+			body: '<body><div><p>Test content</p></div></body>',
+			head: '<head><title>Test</title><meta charset="utf-8"></head>'
 		}));
 
 		const result = await renderFunction(MockComponentPlaceholder, { pretty: true });
@@ -98,9 +103,9 @@ describe('render function', () => {
 
 	it('processes Tailwind CSS when tailwindConfig is provided', async () => {
 		// Setup HTML with tailwind classes
-		vi.mocked(svelteRender).mockImplementationOnce((): any => ({ 
+		vi.mocked(svelteRender).mockImplementationOnce((): any => ({
 			body: '<body><div class="bg-blue-500 text-white p-4">Tailwind styled content</div></body>',
-			head: '<head></head>',
+			head: '<head></head>'
 		}));
 
 		// Create a simple tailwind config
@@ -115,7 +120,7 @@ describe('render function', () => {
 
 		// Verify postcss was called (which means Tailwind processing was attempted)
 		expect(postcss).toHaveBeenCalled();
-		
+
 		// Verify the juice function received the generated CSS in extraCss option
 		expect((juice as any).lastOptions).toBeDefined();
 		expect((juice as any).lastOptions.extraCss).toBeDefined();
@@ -124,9 +129,9 @@ describe('render function', () => {
 
 	it('applies CSS inlining via juice options', async () => {
 		// Mock svelteRender for this test only
-		vi.mocked(svelteRender).mockImplementationOnce((): any => ({ 
+		vi.mocked(svelteRender).mockImplementationOnce((): any => ({
 			body: '<body><p>Styled text</p></body>',
-			head: '<head></head>',
+			head: '<head></head>'
 		}));
 
 		await renderFunction(MockComponentPlaceholder, { tailwindConfig: './tailwind.config.js' });
@@ -140,9 +145,9 @@ describe('render function', () => {
 		const bodyContent = '<body><div>Email content</div></body>';
 
 		// Override the svelteRender mock for this test only
-		vi.mocked(svelteRender).mockImplementationOnce((): any => ({ 
+		vi.mocked(svelteRender).mockImplementationOnce((): any => ({
 			body: bodyContent,
-			head: headContent,
+			head: headContent
 		}));
 
 		const result = await renderFunction(MockComponentPlaceholder);
@@ -153,4 +158,4 @@ describe('render function', () => {
 		// Result should include the body content from the mocked svelteRender
 		expect(result).toContain(bodyContent);
 	});
-}); 
+});

@@ -3,6 +3,5 @@ import { cleanup } from '@testing-library/svelte';
 
 // Automatically cleanup DOM after each test
 afterEach(() => {
-  cleanup();
+	cleanup();
 });
-

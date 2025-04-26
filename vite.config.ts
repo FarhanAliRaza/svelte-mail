@@ -12,7 +12,7 @@ export default defineConfig({
 	},
 	ssr: {
 		// Ensure these packages are processed by Vite during SSR
-		noExternal: [/^@fontsource\/.*/, '@testing-library/svelte'], 
+		noExternal: [/^@fontsource\/.*/, '@testing-library/svelte'],
 		// Ensure native dependencies are NOT bundled by Vite for SSR
 		external: ['@tailwindcss/oxide', 'lightningcss']
 	},

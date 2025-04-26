@@ -19,8 +19,8 @@ describe('Email Rendering', () => {
 		// Render the Svelte component
 		const { html: renderedHtml } = render(AwsVerifyEmail, {
 			props: {
-				verificationCode,
-			},
+				verificationCode
+			}
 		});
 		fs.writeFileSync('/home/farhan/code/svelte-mail/src/lib/__tests__/rendered.html', renderedHtml);
 

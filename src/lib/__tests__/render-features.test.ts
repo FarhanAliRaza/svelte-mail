@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render } from '../render.js';
-import type {  SvelteComponent } from 'svelte';
+import type { SvelteComponent } from 'svelte';
 import juice from 'juice';
 import { convert } from 'html-to-text';
 import postcss from 'postcss';
@@ -28,33 +28,44 @@ vi.mock('html-to-text', async () => {
 			const skipHead = options?.selectors?.some(
 				(s: SelectorDefinition) => s.selector === 'head' && s.format === 'skip' // Type s
 			);
-			
+
 			if (skipHead) {
 				// Basic simulation: remove content between <head> tags before stripping all tags
 				processedHtml = processedHtml.replace(/<head[^>]*>.*?<\/head>/is, '');
 			}
-			
+
 			// Simple tag stripping for the rest (or remaining parts)
-			return processedHtml.replace(/<[^>]*>/g, '').replace(/\n\s*\n/g, '\n').trim();
+			return processedHtml
+				.replace(/<[^>]*>/g, '')
+				.replace(/\n\s*\n/g, '\n')
+				.trim();
 		})
 	};
 });
 
 // Define the expected function signature for the mocked Svelte 5 render
-type MockedSvelteRender = (_component: SvelteComponent<any>, _options?: { props?: any }) => { head: string; body: string };
+type MockedSvelteRender = (
+	_component: SvelteComponent<any>,
+	_options?: { props?: any }
+) => { head: string; body: string };
 
 // Mock svelte/server render
 vi.mock('svelte/server', () => {
 	return {
-		render: vi.fn().mockImplementation(
-			(_component: SvelteComponent<any>, _options?: { props?: any }): { head: string; body: string } => {
-				// Default mock implementation, returns head and body
-				return {
-					body: '<body>Mock Body <div class="text-red-500">Content</div></body>', // Added a class for tailwind test
-					head: '<head><title>Mock Head</title></head>',
-				};
-			}
-		)
+		render: vi
+			.fn()
+			.mockImplementation(
+				(
+					_component: SvelteComponent<any>,
+					_options?: { props?: any }
+				): { head: string; body: string } => {
+					// Default mock implementation, returns head and body
+					return {
+						body: '<body>Mock Body <div class="text-red-500">Content</div></body>', // Added a class for tailwind test
+						head: '<head><title>Mock Head</title></head>'
+					};
+				}
+			)
 	};
 });
 
@@ -78,7 +89,8 @@ describe('render function extended features', () => {
 
 	it('processes Tailwind CSS when tailwindConfig is provided', async () => {
 		// Calling with a tailwind config
-		await render(MockComponentPlaceholder, { // Use placeholder
+		await render(MockComponentPlaceholder, {
+			// Use placeholder
 			tailwindConfig: {} // Dummy config to trigger the logic
 		});
 
@@ -95,7 +107,8 @@ describe('render function extended features', () => {
 	});
 
 	it('generates plain text version when plainText option is true', async () => {
-		const result = await render(MockComponentPlaceholder, { // Use placeholder
+		const result = await render(MockComponentPlaceholder, {
+			// Use placeholder
 			plainText: true
 		});
 
@@ -120,7 +133,8 @@ describe('render function extended features', () => {
 	});
 
 	it('applies pretty printing when pretty option is true', async () => {
-		const result = await render(MockComponentPlaceholder, { // Use placeholder
+		const result = await render(MockComponentPlaceholder, {
+			// Use placeholder
 			pretty: true
 		});
 
@@ -132,7 +146,8 @@ describe('render function extended features', () => {
 	});
 
 	it('passes juiceOptions to juice', async () => {
-		await render(MockComponentPlaceholder, { // Use placeholder
+		await render(MockComponentPlaceholder, {
+			// Use placeholder
 			juiceOptions: {
 				removeStyleTags: false,
 				applyStyleTags: true
@@ -155,7 +170,8 @@ describe('render function extended features', () => {
 			preserveNewlines: true
 		};
 
-		await render(MockComponentPlaceholder, { // Use placeholder
+		await render(MockComponentPlaceholder, {
+			// Use placeholder
 			plainText: true,
 			htmlToTextOptions: customOptions
 		});
@@ -166,4 +182,4 @@ describe('render function extended features', () => {
 			expect.objectContaining(customOptions)
 		);
 	});
-}); 
+});

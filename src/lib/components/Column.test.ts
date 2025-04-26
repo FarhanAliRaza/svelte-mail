@@ -5,8 +5,6 @@ import type { Snippet } from 'svelte';
 import { render } from '../render'; // Import the custom SSR render
 import { createSnippet } from '../utils/snippet';
 
-
-
 describe('Column component (SSR)', () => {
 	it('renders children correctly', async () => {
 		const testMessage = 'Test message';

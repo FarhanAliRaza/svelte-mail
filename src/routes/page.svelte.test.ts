@@ -5,18 +5,18 @@ import Page from './+page.svelte';
 // Mock component rendering for Svelte 5
 vi.mock('@testing-library/svelte', async () => {
 	const actual = await vi.importActual('@testing-library/svelte');
-	
+
 	return {
 		...actual,
 		render: vi.fn().mockImplementation((component) => {
 			// Mock implementation that doesn't try to actually render
 			const container = document.createElement('div');
-			
+
 			// Create a heading element for the test
 			const h1 = document.createElement('h1');
 			h1.textContent = 'Welcome to SvelteKit';
 			container.appendChild(h1);
-			
+
 			return {
 				container,
 				getByRole: (role: string, options?: { level?: number }) => {

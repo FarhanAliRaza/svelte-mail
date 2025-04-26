@@ -113,4 +113,4 @@ describe('Button component (SSR)', () => {
 		expect(html).toContain('max-width: 50%');
 		expect(html).toMatchSnapshot();
 	});
-}); 
+});

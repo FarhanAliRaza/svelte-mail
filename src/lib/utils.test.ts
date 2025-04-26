@@ -32,15 +32,21 @@ describe('styleToString', () => {
 	});
 
 	it('should handle undefined, null, and false inputs', () => {
-		expect(styleToString('color: red;', undefined, 'font-size: 16px;', null, false)).toBe('color: red; font-size: 16px;');
+		expect(styleToString('color: red;', undefined, 'font-size: 16px;', null, false)).toBe(
+			'color: red; font-size: 16px;'
+		);
 	});
 
 	it('should deduplicate properties, keeping the last one', () => {
-		expect(styleToString('color: red; font-size: 12px;', 'color: blue;')).toBe('color: blue; font-size: 12px;');
+		expect(styleToString('color: red; font-size: 12px;', 'color: blue;')).toBe(
+			'color: blue; font-size: 12px;'
+		);
 	});
 
 	it('should normalize camelCase properties to kebab-case', () => {
-		expect(styleToString('fontSize: 14px; backgroundColor: white;')).toBe('font-size: 14px; background-color: white;');
+		expect(styleToString('fontSize: 14px; backgroundColor: white;')).toBe(
+			'font-size: 14px; background-color: white;'
+		);
 	});
 
 	it('should handle mixed casing and deduplication', () => {
@@ -61,8 +67,12 @@ describe('styleToString', () => {
 
 	it('should ignore unsafe/unsupported properties and warn', () => {
 		expect(styleToString('position: absolute; color: red; z-index: 10;')).toBe('color: red;');
-		expect(consoleWarnSpy).toHaveBeenCalledWith('[styleToString] Unsupported or unsafe CSS property: "position" will be ignored.');
-		expect(consoleWarnSpy).toHaveBeenCalledWith('[styleToString] Unsupported or unsafe CSS property: "z-index" will be ignored.');
+		expect(consoleWarnSpy).toHaveBeenCalledWith(
+			'[styleToString] Unsupported or unsafe CSS property: "position" will be ignored.'
+		);
+		expect(consoleWarnSpy).toHaveBeenCalledWith(
+			'[styleToString] Unsupported or unsafe CSS property: "z-index" will be ignored.'
+		);
 	});
 
 	it('should escape potentially dangerous values and warn', () => {
@@ -70,11 +80,16 @@ describe('styleToString', () => {
 		expect(styleToString('color: red; background: blue;')).toBe('color: red; background: blue;');
 
 		// Test removal of expression() and --
-		const potentiallyMaliciousStyle = 'width: expression(alert("XSS")); color: blue; --custom-prop: injection;';
+		const potentiallyMaliciousStyle =
+			'width: expression(alert("XSS")); color: blue; --custom-prop: injection;';
 		expect(styleToString(potentiallyMaliciousStyle)).toBe('color: blue;');
 		// Check for the new warning about the value, and the existing one for the property
-		expect(consoleWarnSpy).toHaveBeenCalledWith('[styleToString] Potentially unsafe value detected (expression): "expression(alert("XSS"))"');
-		expect(consoleWarnSpy).toHaveBeenCalledWith('[styleToString] Unsupported or unsafe CSS property: "--custom-prop" will be ignored.');
+		expect(consoleWarnSpy).toHaveBeenCalledWith(
+			'[styleToString] Potentially unsafe value detected (expression): "expression(alert("XSS"))"'
+		);
+		expect(consoleWarnSpy).toHaveBeenCalledWith(
+			'[styleToString] Unsupported or unsafe CSS property: "--custom-prop" will be ignored.'
+		);
 
 		// Ensure url() is NOT removed for safe properties like background-image (though background itself might be flagged if complex)
 		// Note: `background-image` is not currently in EMAIL_SAFE_PROPERTIES, so this part won't pass yet.
@@ -83,11 +98,17 @@ describe('styleToString', () => {
 
 	it('should handle invalid declarations and warn', () => {
 		expect(styleToString('color red; font-size: 16px', 'invalid-style')).toBe('font-size: 16px;');
-		expect(consoleWarnSpy).toHaveBeenCalledWith('[styleToString] Invalid style declaration: "color red"');
-		expect(consoleWarnSpy).toHaveBeenCalledWith('[styleToString] Invalid style declaration: "invalid-style"');
+		expect(consoleWarnSpy).toHaveBeenCalledWith(
+			'[styleToString] Invalid style declaration: "color red"'
+		);
+		expect(consoleWarnSpy).toHaveBeenCalledWith(
+			'[styleToString] Invalid style declaration: "invalid-style"'
+		);
 	});
 
 	it('should handle outlook specific properties', () => {
-		expect(styleToString('mso-padding-alt: 10pt; mso-text-raise: 5pt;')).toBe('mso-padding-alt: 10pt; mso-text-raise: 5pt;');
+		expect(styleToString('mso-padding-alt: 10pt; mso-text-raise: 5pt;')).toBe(
+			'mso-padding-alt: 10pt; mso-text-raise: 5pt;'
+		);
 	});
-}); 
+});
