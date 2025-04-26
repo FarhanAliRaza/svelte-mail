@@ -1,6 +1,6 @@
 {
-	"name": "svelte-mail",
-	"version": "0.1.2",
+	"name": "svmail",
+	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
