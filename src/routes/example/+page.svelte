@@ -11,23 +11,13 @@
 	const appleHtml = data.appleHtml;
 	const nikeHtml = data.nikeHtml;
 	const airbnbHtml = data.airbnbHtml;
-	console.log(airbnbHtml);
+
 	// Optional: Log the HTML received from server
 	// console.log('Received email HTML from server:', emailHtml);
 </script>
 
 <!-- Example Usage -->
 <!-- Remove the wrapping div, bind directly to Html component if needed for rendering -->
-
-<!-- Display rendered HTML (optional, for debugging/demonstration) -->
-{#if emailHtml}
-	<div style="margin-top: 20px; padding: 10px; border: 1px dashed #ccc; background: #eee;">
-		<h3 style="margin-top:0;">Rendered HTML Output:</h3>
-		<div style="border: 1px solid black; padding: 1em;">
-			{@html emailHtml}
-		</div>
-	</div>
-{/if}
 
 {#if 'githubHtml' in data && data.githubHtml}
 	<div style="margin-top: 20px; padding: 10px; border: 1px dashed #ccc; background: #eee;">
