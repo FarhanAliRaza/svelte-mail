@@ -225,9 +225,3 @@ export async function render<Props extends Record<string, any>>(
 	return finalHtml;
 }
 
-// Helper function to get component CSS (if needed separately)
-// function getComponentCss(component: SvelteComponent<any>): string {
-//   const { css } = (component as any).render();
-//   return css.code || '';
-// }
-// }

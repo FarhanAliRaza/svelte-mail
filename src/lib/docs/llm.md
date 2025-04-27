@@ -1,3 +1,84 @@
+## Render Function
+
+Renders a Svelte email component to an HTML string. Handles CSS inlining, Tailwind processing, plain text generation, and more.
+
+```typescript
+import type { Component } from 'svelte';
+import type { HtmlToTextOptions } from 'html-to-text';
+import type { Config as TailwindConfig } from 'tailwindcss';
+import type juice from 'juice';
+
+/**
+ * Represents the options for the render function.
+ */
+export interface RenderOptions {
+	pretty?: boolean; // Format output HTML
+	plainText?: boolean; // Generate plain text version
+	tailwindConfig?: string | TailwindConfig; // Path or object for Tailwind configuration
+	globalStyles?: string; // Add option for global styles (e.g., fonts)
+	htmlToTextOptions?: HtmlToTextOptions; // Options for html-to-text
+	juiceOptions?: juice.Options; // Options for juice
+}
+
+/**
+ * Renders a Svelte email component to an HTML string.
+ *
+ * @param component The root Svelte component to render (e.g., Html).
+ * @param options Optional rendering configuration.
+ * @param props Props to pass to the component
+ * @returns The rendered HTML string or an object with html and text properties if plainText is true.
+ */
+export async function render<Props extends Record<string, any>>(
+	component: Component<any>,
+	options?: RenderOptions,
+	props?: Props
+): Promise<string | { html: string; text: string }>;
+```
+
+### Parameters
+
+-   `component`: The root Svelte component to render (e.g., `<Html>`).
+-   `options` (optional): An object with rendering options:
+    -   `pretty` (boolean): Format the output HTML for readability. Defaults to `false`.
+    -   `plainText` (boolean): Generate a plain text version of the email. If `true`, the function returns an object `{ html: string; text: string }`. Defaults to `false`.
+    -   `tailwindConfig` (string | TailwindConfig): Path to a `tailwind.config.js` file or a Tailwind configuration object. If provided, Tailwind CSS will be processed and inlined.
+    -   `globalStyles` (string): A string containing global CSS to be inlined (e.g., font definitions not handled by the `<Font>` component).
+    -   `htmlToTextOptions` (HtmlToTextOptions): Options passed directly to the `html-to-text` library when `plainText` is `true`.
+    -   `juiceOptions` (juice.Options): Options passed directly to the `juice` library for CSS inlining.
+-   `props` (optional): Props to pass directly to the root `component`.
+
+### Returns
+
+-   If `options.plainText` is `false` (default): A `Promise<string>` containing the rendered HTML email.
+-   If `options.plainText` is `true`: A `Promise<{ html: string; text: string }>` containing both the HTML and the generated plain text version.
+
+### Example
+
+```typescript
+import { render } from 'mail-svelte';
+import MyEmailTemplate from './MyEmailTemplate.svelte';
+
+const userProps = { name: 'Alex' };
+
+// Render HTML only
+const html = await render(MyEmailTemplate, { pretty: true }, userProps);
+console.log(html);
+
+// Render HTML and plain text
+const { html: htmlVersion, text: textVersion } = await render(
+	MyEmailTemplate,
+	{ 
+        plainText: true,
+        tailwindConfig: './tailwind.config.js'
+    },
+	userProps
+);
+console.log(htmlVersion);
+console.log(textVersion);
+```
+
+---
+
 # Svelte Mail Documentation
 
 A powerful email template builder for Svelte applications, inspired by React Email.
