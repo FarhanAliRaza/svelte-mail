@@ -2,19 +2,9 @@ import type { Component } from 'svelte';
 import { render as svelteRender } from 'svelte/server';
 import juice from 'juice';
 import { convert, type HtmlToTextOptions } from 'html-to-text';
-import postcss from 'postcss';
-import tailwindcss from 'tailwindcss';
-// Try to import @tailwindcss/postcss if available (for Tailwind v4+)
-let tailwindPostcss: any;
-try {
-	// Using dynamic import to handle optional dependency
-	tailwindPostcss = require('@tailwindcss/postcss');
-} catch (e) {
-	// Will use default tailwindcss if @tailwindcss/postcss is not available
-}
-import type { Config as TailwindConfig } from 'tailwindcss';
-import path from 'path';
-import fs from 'fs';
+
+
+
 // import { marked } from 'marked'; // Import if/when needed
 
 /**
@@ -23,7 +13,7 @@ import fs from 'fs';
 export interface RenderOptions {
 	pretty?: boolean; // Format output HTML
 	plainText?: boolean; // Generate plain text version
-	tailwindConfig?: string | TailwindConfig; // Path or object for Tailwind configuration
+	// tailwindConfig?: string | TailwindConfig; // Path or object for Tailwind configuration
 	globalStyles?: string; // Add option for global styles (e.g., fonts)
 	htmlToTextOptions?: HtmlToTextOptions; // Options for html-to-text
 	juiceOptions?: juice.Options; // Options for juice
@@ -39,7 +29,7 @@ export interface RenderOptions {
  */
 async function processTailwind(
 	html: string,
-	tailwindConfig?: string | TailwindConfig
+	// tailwindConfig?: string | TailwindConfig
 ): Promise<string> {
 	// 1. Extract classes from HTML
 	const classRegex = /class="([^"]*)"/g;
@@ -55,6 +45,8 @@ async function processTailwind(
 		return ''; // No Tailwind classes found
 	}
 
+	// Commenting out Tailwind processing logic for now
+	/*
 	// 2. Create a temporary CSS file that uses the extracted classes
 	const safelist = [...classSet];
 	const tempCss = safelist.map((cls) => `.${cls} {}`).join('\n');
@@ -108,6 +100,8 @@ async function processTailwind(
 		console.error('Failed to process Tailwind CSS:', error);
 		return '';
 	}
+	*/
+	return ''; // Return empty string since processing is commented out
 }
 
 /**
@@ -171,7 +165,8 @@ export async function render<Props extends Record<string, any>>(
 	// 2. Combine head and body - Assume the component provides <html> tag
 	let combinedHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n${head}\n${body}`;
 
-	// 3. Process Tailwind CSS if option is provided
+	// 3. Process Tailwind CSS if option is provided (Commented out)
+	/*
 	let tailwindGeneratedCss = '';
 	if (options?.tailwindConfig) {
 		try {
@@ -180,9 +175,11 @@ export async function render<Props extends Record<string, any>>(
 			console.warn('Failed to process Tailwind CSS:', error);
 		}
 	}
+	*/
 
 	// Combine Tailwind CSS with other global styles (like fonts)
-	const allExtraCss = [options?.globalStyles, tailwindGeneratedCss].filter(Boolean).join('\n');
+	// const allExtraCss = [options?.globalStyles, tailwindGeneratedCss].filter(Boolean).join('\n');
+	const allExtraCss = [options?.globalStyles].filter(Boolean).join('\n'); // Use only globalStyles for now
 
 	// 4. Inline CSS using juice
 	const juiceOptions: juice.Options = {
